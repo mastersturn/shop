@@ -1,7 +1,7 @@
 {% extends "shop/base.html" %}
 {% load static %}
 {% block title %}
-    {% if category %}{{ category.title }}{% else %}Products{% endif %}
+    {% if category %}{{ category.title }}{% else %}Товары{% endif %}
 {% endblock %}
 {% block content %}
 <div class="product-container">
@@ -14,7 +14,7 @@
             <form action="{% url "cart:cart_add" product.id %}" method="post">
             {{ cart_product_form }}
             {% csrf_token %}
-            <input type="submit" value="Add to cart">
+            <input type="submit" value="Добавить в корзину">
             </form>
         </div>
     </div>
