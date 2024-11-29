@@ -1,129 +1,170 @@
-/* base.css */
-
 /* General Reset */
+/* Сброс стилей для всех элементов на странице */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Убедимся, что padding и border не влияют на общую ширину элемента */
 }
 
+/* Body */
 body {
-    font-family: Arial, sans-serif;
-    color: #333;
-    background-color: #f7f9fc;
+    font-family: Arial, sans-serif; /* Основной шрифт */
+    color: #333; /* Цвет текста */
+    background-color: #f7f9fc; /* Цвет фона для всего сайта */
 }
 
 /* Header and Subheader */
+/* Стили для основного хедера (шапки) */
 #header {
-    background-color: #4a90e2;
-    color: #fff;
+    background-color: #4a90e2; /* Цвет фона */
+    color: #fff; /* Белый цвет текста */
     padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
+    display: flex; /* Использование flexbox для выравнивания элементов */
+    justify-content: space-between; /* Распределение элементов по краям */
+    align-items: center; /* Выравнивание по центру по вертикали */
+    position: fixed; /* Фиксированное положение */
     width: 100%;
     top: 0;
     left: 0;
-    height: 77px;
+    height: 77px; /* Высота шапки */
+    z-index: 1000; /* Размещение шапки поверх других элементов */
 }
 
+/* Логотип в хедере */
 #header .logo {
-    font-size: 2em;
-    font-weight: bold;
-    color: #fff;
-    text-decoration: none;
+    font-size: 2em; /* Размер шрифта */
+    font-weight: bold; /* Полужирный шрифт */
+    color: #fff; /* Белый цвет текста */
+    text-decoration: none; /* Убираем подчеркивание */
 }
 
+/* Корзина в хедере */
 #header .cart {
-    font-size: 0.9em;
+    font-size: 0.9em; /* Меньший шрифт для корзины */
 }
 
 #header .cart a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
+    color: white; /* Белый цвет текста для ссылки */
+    text-decoration: none; /* Убираем подчеркивание */
+    font-weight: bold; /* Полужирный текст */
 }
 
+/* Стили для подзаголовка */
 #subheader {
-    background-color: #eaf1fb;
+    background-color: #eaf1fb; /* Светло-голубой фон */
     padding: 10px;
-    text-align: right;
-    border-bottom: 2px solid #4a90e2;
+    text-align: right; /* Выравнивание текста по правому краю */
+    border-bottom: 2px solid #4a90e2; /* Нижняя граница того же цвета, что и в хедере */
 }
 
 /* Layout: Sidebar and Main Content */
+/* Основная структура страницы с боковой панелью и контентом */
+/* Основная структура страницы с боковой панелью */
 #content {
-    display: flex;
-    margin: 77px 0 0 0;
+    display: flex; /* Используем flexbox для боковой панели и контента */
+    margin-top: 77px; /* Отступ сверху для контента, чтобы не перекрывать шапку */
 }
 
+/* Боковая панель */
 #sidebar {
-    width: 300px;
+    width: 250px; /* Ширина боковой панели */
     background-color: #fff;
     padding: 20px;
-    border-right: 1px solid #ddd;
-    height: calc(100vh - 77px);
-    position: fixed;
-    top: 77px;
-    left: 0;
+    border-right: 1px solid #ddd; /* Легкая граница справа от боковой панели */
+    height: 100vh; /* Высота панели на всю высоту экрана */
+    position: fixed; /* Фиксированное положение */
+    top: 77px; /* Отступ от верхней границы экрана для фиксации под шапкой */
+    left: 0; /* Прикрепляем панель к левой части экрана */
+    transition: width 0.3s ease-in-out; /* Плавное изменение ширины при необходимости */
 }
 
 #sidebar h3 {
     font-size: 1.3em;
     margin-bottom: 15px;
-    color: #4a90e2;
+    color: #4a90e2; /* Цвет заголовка */
+    font-weight: bold;
 }
 
+/* Стили для списка категорий в боковой панели */
 #sidebar ul {
-    list-style: none;
+    list-style: none; /* Убираем стандартные маркеры списка */
+    padding: 0;
 }
 
 #sidebar ul li {
-    margin-bottom: 10px;
+    margin-bottom: 15px; /* Отступ между категориями */
 }
 
 #sidebar ul li a {
-    text-decoration: none;
-    color: #4a90e2;
-    transition: color 0.3s ease;
+    text-decoration: none; /* Убираем подчеркивание */
+    color: #4a90e2; /* Цвет ссылок */
+    font-weight: 500; /* Меньший вес шрифта */
+    display: block;
+    padding: 10px;
+    border-radius: 4px; /* Скругление углов */
+    transition: color 0.3s ease, background-color 0.3s ease; /* Плавное изменение цветов при наведении */
 }
 
+/* Стили для активной категории */
 #sidebar ul li.selected a {
-    font-weight: bold;
-    color: #e94a4a;
+    font-weight: bold; /* Полужирный шрифт для активной категории */
+    color: #fff; /* Белый цвет текста для активной категории */
+    background-color: #4a90e2; /* Фоновый цвет для активной категории */
 }
 
+/* Эффект при наведении на ссылку */
 #sidebar ul li a:hover {
-    color: #e94a4a;
+    color: #fff;
+    background-color: #4a90e2; /* Фон при наведении на ссылку */
 }
 
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    #sidebar {
+        width: 100%; /* На мобильных устройствах меню будет занимать всю ширину экрана */
+        height: auto; /* Убираем фиксированную высоту */
+        position: relative; /* Убираем фиксированное положение на мобильных */
+    }
+
+    #main {
+        margin-left: 0; /* Убираем отступ слева */
+    }
+}
+
+
+/* Контент, который расположен рядом с боковой панелью */
 #main {
-    width: 100%;
+    margin-left: 250px; /* Отступ для освобождения места для боковой панели */
     padding: 20px;
-    margin: 0 0 0 300px;
+    width: 100%;
 }
 
-#main h1{
+/* Заголовки на главной странице */
+#main h1 {
     margin-bottom: 20px;
 }
+
 /* Product List Grid */
+/* Стили для сетки с товарами */
 .product-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
+    display: grid; /* Используем CSS Grid для создания сетки */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Автоматически заполняем колонки */
+    gap: 20px; /* Отступы между элементами */
 }
 
-.cart-wrapper{
+/* Cart Wrapper */
+.cart-wrapper {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Выравнивание корзины по центру */
 }
 
+/* Cart Table */
 .cart {
     margin: 20px 0;
 }
 
+/* Заголовки таблицы корзины */
 .cart thead th {
     background-color: #007bff;
     color: #fff;
@@ -141,12 +182,12 @@ body {
 
 /* Стили для ячеек с числовыми значениями */
 .cart .num {
-    text-align: right;
+    text-align: right; /* Выравнивание по правому краю */
     font-weight: bold;
     color: #333;
 }
 
-/* Стили для изображения */
+/* Стили для изображения в корзине */
 .cart img {
     max-width: 80px;
     height: auto;
@@ -154,32 +195,35 @@ body {
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Стили для кнопок "Remove", "Continue shopping" и "Checkout" */
+/* Стили для ссылок в корзине */
 .cart a {
     text-decoration: none;
-    color: #007bff;
+    color: #007bff; /* Синий цвет для ссылок */
 }
 
 .cart a:hover {
-    color: #0056b3;
+    color: #0056b3; /* Темно-синий цвет при наведении */
 }
 
+/* Стили для кнопок */
 .button {
     display: inline-block;
     padding: 10px 20px;
     font-size: 14px;
     font-weight: bold;
     color: #fff;
-    background-color: #28a745;
+    background-color: #28a745; /* Зеленая кнопка */
     border-radius: 5px;
     transition: background-color 0.3s;
     text-align: center;
 }
 
+/* Легкая кнопка */
 .button.light {
     background-color: #6c757d;
 }
 
+/* Эффект при наведении на кнопки */
 .button:hover {
     background-color: #218838;
 }
@@ -188,7 +232,7 @@ body {
     background-color: #5a6268;
 }
 
-/* Стили для строки итогов */
+/* Стили для итогов в корзине */
 .cart .total td {
     font-size: 16px;
     font-weight: bold;
@@ -196,25 +240,26 @@ body {
 }
 
 .cart .total td.num {
-    color: #007bff;
+    color: #007bff; /* Цвет итоговой суммы */
 }
 
-
 /* Product Item */
+/* Стили для каждого товара в списке */
 .product-list .item {
     background-color: #fff;
     padding: 15px;
     border: 1px solid #ddd;
     border-radius: 8px;
     text-align: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Плавные эффекты при наведении */
 }
-
+/* Эффект при наведении на товар */
 .product-list .item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px); /* Поднятие элемента */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Легкая тень */
 }
 
+/* Изображение товара */
 .product-list .item img {
     max-width: 100%;
     height: auto;
@@ -222,8 +267,8 @@ body {
     margin-bottom: 10px;
 }
 
+/* Ссылка на товар */
 .product-list .item a {
-    display: block;
     font-weight: bold;
     color: #333;
     text-decoration: none;
@@ -231,10 +276,12 @@ body {
     transition: color 0.3s ease;
 }
 
+/* Эффект при наведении на ссылку товара */
 .product-list .item a:hover {
     color: #4a90e2;
 }
 
+/* Стили для цены товара */
 .product-list .item .price {
     font-size: 1.2em;
     color: #e94a4a;
@@ -242,125 +289,138 @@ body {
 }
 
 /* Product Detail */
+/* Контейнер для детальной информации о продукте */
 .product-detail {
-    text-align: center;
-    background-color: #fff;
-    padding: 25px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex; /* Используем Flexbox для горизонтального расположения */
+    gap: 30px; /* Отступы между изображением и текстом */
+    justify-content: flex-start; /* Выравнивание по горизонтали */
+    align-items: flex-start; /* Выравнивание по вертикали */
+    max-width: 1200px; /* Ограничиваем максимальную ширину карточки */
+    margin: 20px auto; /* Центрируем контейнер на странице */
 }
 
+/* Стили для изображения */
 .product-detail img {
-    max-width: 100%;
+    width: 350px; /* Фиксированная ширина для изображения */
     height: auto;
-    margin-bottom: 15px;
     border-radius: 8px;
+    margin-bottom: 15px;
+    margin-left: 15px;
 }
 
+/* Стили для блока с текстом и кнопками (справа от изображения) */
+.product-detail-info {
+    flex: 1; /* Блок с текстом занимает оставшееся пространство */
+    display: flex;
+    flex-direction: column; /* Элементы будут располагаться вертикально */
+    gap: 15px; /* Добавляем отступы между элементами */
+}
+
+/* Заголовок */
 .product-detail h1 {
     font-size: 1.8em;
-    color: #4a90e2;
+    color: #173353;
     margin-bottom: 10px;
 }
 
-.product-detail h2 a {
-    color: #e94a4a;
-    text-decoration: none;
-    transition: color 0.3s ease;
+/* Описание товара */
+.product-detail .description {
+    font-size: 1.1em;
+    color: #555;
+    margin-top: 15px;
 }
 
-.product-detail h2 a:hover {
-    color: #4a90e2;
-}
-
+/* Цена товара */
 .product-detail .price {
     font-size: 1.5em;
-    color: #e94a4a;
-    margin: 15px 0;
+    color: #3c701a;
+    margin: 0;
 }
 
-.product-detail-form form{
+/* Стили для формы добавления в корзину */
+.product-detail-form form {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
+    flex-direction: column; /* Ставим элементы формы в колонку */
+    align-items: flex-start; /* Выравниваем элементы по левому краю */
+    gap: 8px; /* Отступы между элементами формы */
 }
 
-.create-wrapper{
-    width: 100%;
+/* Кнопка "Добавить в корзину" */
+.product-detail-form input[type="submit"] {
+    padding: 12px 20px;
+    background-color: #3b91f3;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.product-detail-form input[type="submit"]:hover {
+    background-color: #04275c; /* Темный зеленый при наведении */
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .product-detail {
+        flex-direction: column; /* Изменяем расположение на вертикальное */
+        align-items: center; /* Центрируем элементы */
+    }
+
+    .product-detail img {
+        width: 80%; /* Изображение будет занимать 80% ширины на мобильных */
+    }
+
+    .product-detail-info {
+        align-items: center; /* Выравнивание элементов по центру на мобильных */
+        gap: 10px; /* Меньше отступов на мобильных */
+    }
+}
+/* Оформление страницы заказа */
+/* Общий стиль для контейнера */
+.create-wrapper {
     display: flex;
     justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f9f9f9; /* Цвет фона страницы */
+    margin-left: 30px;
 }
 
-.create-container{
-    width: 400px;
-    margin-top: 40px;
-    padding: 20px;
+/* Контейнер для оформления заказа */
+.create-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
 }
 
-/* Form and Button Styling */
-form input[type="number"] {
-    width: 50px;
+/* Заголовок страницы */
+.create-container h1 {
+    font-size: 2em;
+    color: #4a90e2;
+    margin-bottom: 20px;
     text-align: center;
 }
 
-.product-container {
-    padding: 20px;
-}
-
-.cart-container {
-    padding: 20px;
-}
-
-form p {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 16px;
-}
-
-form label {
-    font-size: 14px;
-    font-weight: 500;
-    color: #333;
-    margin-bottom: 4px;
-}
-
-form input {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    outline: none;
-    transition: border-color 0.3s ease;
-}
-
-form input:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
-}
-
-/* Контейнер для информации о заказе */
+/* Стиль для информации о заказе */
 .order-info {
-    max-width: 500px;
-    margin: 20px auto;
+    background-color: #f7f7f7;
     padding: 20px;
-    border: 1px solid #ddd;
     border-radius: 8px;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
-/* Заголовок блока заказа */
 .order-info h3 {
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 1.5em;
     color: #333;
     margin-bottom: 15px;
-    text-align: center;
 }
 
-/* Список товаров */
 .order-info ul {
     list-style-type: none;
     padding: 0;
@@ -370,32 +430,83 @@ form input:focus {
 .order-info li {
     display: flex;
     justify-content: space-between;
-    font-size: 16px;
-    padding: 8px 0;
-    border-bottom: 1px solid #ddd;
-}
-
-.order-info li:last-child {
-    border-bottom: none;
-}
-
-/* Цена для товара */
-.order-info li span {
-    font-weight: bold;
-    color: #007bff;
-}
-
-/* Итоговая сумма */
-.order-info p {
-    font-size: 18px;
-    font-weight: bold;
-    text-align: right;
+    margin-bottom: 10px;
+    font-size: 1.1em;
     color: #333;
-    margin-top: 15px;
 }
 
-.order-info p::before {
-    content: "Total: ";
-    font-weight: normal;
-    color: #555;
+.order-info li span {
+    color: #e94a4a; /* Цвет для цен */
+    font-weight: bold;
+}
+
+.order-info p {
+    font-size: 1.2em;
+    text-align: right;
+    font-weight: bold;
+    color: #4a90e2;
+}
+
+/* Контейнер для формы */
+.order-form-container {
+    margin-top: 30px;
+}
+
+/* Оформление формы */
+.order-form input[type="text"],
+.order-form input[type="email"],
+.order-form input[type="number"],
+.order-form input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    color: #333;
+    background-color: #f7f7f7;
+}
+
+.order-form input[type="text"]:focus,
+.order-form input[type="email"]:focus,
+.order-form input[type="number"]:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.2);
+}
+
+.order-form input[type="submit"] {
+    background-color: #4a90e2;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.order-form input[type="submit"]:hover {
+    background-color: #2c75d3; /* Цвет кнопки при наведении */
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .create-container {
+        padding: 20px;
+        width: 90%;
+    }
+
+    .order-info {
+        padding: 15px;
+    }
+
+    .order-info h3 {
+        font-size: 1.3em;
+    }
+
+    .order-info li {
+        font-size: 1em;
+    }
+
+    .order-form input[type="submit"] {
+        font-size: 1.2em;
+    }
 }
