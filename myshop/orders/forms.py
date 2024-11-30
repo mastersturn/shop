@@ -14,3 +14,11 @@ class OrderCreateForm(forms.ModelForm):
                     'postal_code': forms.TextInput(attrs={'class': 'form-input'}),
                     'city': forms.TextInput(attrs={'class': 'form-input'}),
                 }
+        labels = {
+            'first_name': 'Имя',
+            'last_name': 'Фамилия',
+            'email': 'Электронная почта',
+            'address': 'Адрес',
+            'postal_code': 'Почтовый индекс',
+            'city': 'Город',
+        }

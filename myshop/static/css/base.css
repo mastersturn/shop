@@ -252,6 +252,10 @@ body {
     border-radius: 8px;
     text-align: center;
     transition: transform 0.2s ease, box-shadow 0.2s ease; /* Плавные эффекты при наведении */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 /* Эффект при наведении на товар */
 .product-list .item:hover {
@@ -288,6 +292,11 @@ body {
     margin-top: 5px;
 }
 
+/*Стиль для описания и цены в карточке*/
+.product-list .item .description {
+    text-align: center;
+    width: 100%;
+}
 /* ------------------------------Product Detail-------------------------------------------------- */
 /* Контейнер для детальной информации о продукте */
 .product-detail {
